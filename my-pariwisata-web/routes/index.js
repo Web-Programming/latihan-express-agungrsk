@@ -4,7 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // res.render('home/beranda', { title: 'Beranda' });
-  res.render('index', { title: 'Beranda' });
+  // res.render('index', { title: 'Beranda' });
+  res.render('layouts/main', { title: 'Beranda' });
 });
 
 router.get('/paketwisata', function(req, res, next) {
