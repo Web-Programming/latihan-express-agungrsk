@@ -1,6 +1,11 @@
+<% let bodyContent = ''; %>
+<% paket.forEach(item => { %>
+  <% bodyContent += `
+  <li>${item.nama}: Rp.${item.harga}</li>
+  `; %>
+<% }) %>
+
 <%- include('../master', 
-{title: title, body: `
-  <h1>halaman paket wisata</h1>
-  `
+{title: title, body: bodyContent
 })
 %>
