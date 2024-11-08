@@ -1,0 +1,11 @@
+// install AngularJs pada komputer
+npm install -g @angular/cli
+
+// membuat projek AngularJs
+ng new namaProjek
+
+// menjalankan server
+ng serve
+
+// generate komponen html,css,js
+ng generate component home
