@@ -9,3 +9,9 @@ ng serve
 
 // generate komponen html,css,js
 ng generate component home
+
+// generate komponen tanpa html
+ng g c HousingLocation --standalone --inline-template
+
+// generate interface -> interface = representasi model dari MongoDB
+ng generate interface HousingLocation
