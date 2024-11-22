@@ -1,25 +1,16 @@
 const Housing = require('../models/housing');
 
-const Index = (req, res, next) => {
-    Housing.find({}, { __v: 0 })
-      .then((hsg) => {
-        const responseMessage = {
-            code: 200,
-            success: true,
-            message: "Successfull",
-            data: hsg
-        };
-        res.status(200).json(responseMessage);
-      })
-      .catch((e) => {
-        const responseMessage = {
-            code: 400,
-            success: false,
-            message: "Bad request"
-        };
-        res.status(400).json(responseMessage);
-      });
-};
+const Index = async (req,res) => {
+    try {
+        const housing = await Housing.find({});
+        res.status(200).json(housing);
+        if(!housing){
+            res.status(400).json({message: "Collection is Empty"})
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error retrieving users", error});
+    }
+}
 
 const insert = (req, res, next) => {
     const hsg = new Housing({

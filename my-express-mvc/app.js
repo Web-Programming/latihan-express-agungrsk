@@ -11,7 +11,7 @@ var indexRouter = require('./app_server/routes/index'); //tambahkan app_server
 var usersRouter = require('./app_server/routes/users'); //tambahkan app_server
 
 var mahasiswaRouter = require('./app_server/routes/mahasiswa'); //tambahkan router mahasiswa
-var housingRouter = require('./app_server/routes/housing'); //tambahkan router mahasiswa
+var housingRouter = require('./app_server/routes/housing'); //tambahkan router housing
 
 var app = express();
 
@@ -24,6 +24,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware untuk memberikan akses untuk menjalankan port pada backend dan frontend
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
