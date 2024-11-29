@@ -1,3 +1,6 @@
+// Panggil dependensi dotenv di awal script pada file app.js
+require('dotenv').config();
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,6 +9,9 @@ var logger = require('morgan');
 
 // KONEKSI KE MONGODB
 require('./app_server/models/db');
+
+//load file config
+require("./app_server/configs/passport");
 
 var indexRouter = require('./app_server/routes/index'); //tambahkan app_server
 var usersRouter = require('./app_server/routes/users'); //tambahkan app_server
