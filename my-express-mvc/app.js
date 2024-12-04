@@ -19,7 +19,9 @@ var usersRouter = require('./app_server/routes/users'); //tambahkan app_server
 var mahasiswaRouter = require('./app_server/routes/mahasiswa'); //tambahkan router mahasiswa
 var housingRouter = require('./app_server/routes/housing'); //tambahkan router housing
 
+var cors = require('cors');
 var app = express();
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views')); //tambahkan app_server untuk memberi tau posisi direktori views di dlm app_server
